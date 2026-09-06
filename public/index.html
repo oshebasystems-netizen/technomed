@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">تكنو ميد | للاستشارات الهندسية وصيانة المعدات</title>
+    <meta name="description" content="شركة استشارات هندسية متخصصة في صيانة لوحات PCB و PLC للأجهزة الطبية، وصيانة أجهزة الكمبيوتر للمصانع.">
+    <!-- Google Fonts: Cairo & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-microchip"></i> <span data-i18n="logo_techno">تكنو</span><span class="highlight" data-i18n="logo_med">ميد</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
+                <li><a href="#services" data-i18n="nav_services">خدماتنا</a></li>
+                <li><a href="#portfolio" data-i18n="nav_portfolio">معرض الأعمال</a></li>
+                <li><a href="#blog" data-i18n="nav_blog">المقالات</a></li>
+                <li><a href="#testimonials" data-i18n="nav_testimonials">آراء العملاء</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">تواصل معنا</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
+                <a href="#booking" class="btn-primary nav-btn" data-i18n="nav_book">احجز الآن</a>
+            </div>
+            <div class="mobile-menu-icon" id="mobile-menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="fade-in-up" data-i18n="hero_title">حلول هندسية متقدمة لصيانة <span>المعدات الطبية والمصانع</span></h1>
+            <p class="fade-in-up delay-1" data-i18n="hero_subtitle">نحن نقدم استشارات هندسية وحلول صيانة احترافية للوحات الـ PCB و PLC للأجهزة الطبية، بالإضافة إلى دعم تكنولوجيا المعلومات للمصانع والشركات الكبرى.</p>
+            <div class="hero-btns fade-in-up delay-2">
+                <a href="#services" class="btn-secondary" data-i18n="hero_btn_services">اكتشف خدماتنا</a>
+                <a href="#booking" class="btn-primary" data-i18n="hero_btn_book">طلب صيانة فورية</a>
+                <a href="#booking" class="btn-secondary" onclick="document.getElementById('service').value='consulting';" data-i18n="hero_btn_consult">حجز استشارة عن بعد</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="services_heading">خدماتنا <span>الاحترافية</span></h2>
+                <p data-i18n="services_subheading">نقدم مجموعة واسعة من الخدمات الهندسية بأعلى معايير الجودة لضمان استمرارية عمل معداتك.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+                    <h3 data-i18n="srv_1_title">صيانة لوحات PCB الطبية</h3>
+                    <p data-i18n="srv_1_desc">إصلاح وصيانة دقيقة للوحات الدوائر المطبوعة (PCB) الخاصة بالمعدات الطبية المعقدة لضمان أداء موثوق وآمن.</p>
+                </div>
+                <div class="service-card reveal delay-1">
+                    <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3 data-i18n="srv_2_title">برمجة وصيانة PLC</h3>
+                    <p data-i18n="srv_2_desc">خدمات برمجة وصيانة أجهزة التحكم المنطقي المبرمج (PLC) المستخدمة في الأجهزة الطبية والمعدات الصناعية.</p>
+                </div>
+                <div class="service-card reveal delay-2">
+                    <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+                    <h3 data-i18n="srv_3_title">صيانة أجهزة الكمبيوتر للمصانع</h3>
+                    <p data-i18n="srv_3_desc">عقود صيانة دورية، دعم فني متكامل، وحماية شبكات أجهزة الكمبيوتر لضمان عدم توقف خطوط الإنتاج.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking section-padding bg-light" id="booking">
+        <div class="container">
+            <div class="booking-wrapper reveal">
+                <div class="booking-info">
+                    <h2 data-i18n="book_heading">احجز خدمة <span>الصيانة</span> الخاصة بك</h2>
+                    <p data-i18n="book_subheading">املأ النموذج وسيقوم فريق المهندسين لدينا بالتواصل معك في أقرب وقت ممكن لتقديم الاستشارة وتحديد موعد الصيانة.</p>
+                    <ul class="booking-features">
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="book_feat_1">استجابة سريعة في أقل من 24 ساعة</span></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="book_feat_2">فريق هندسي متخصص ومجهز</span></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="book_feat_3">ضمان على قطع الغيار والصيانة</span></li>
+                    </ul>
+                </div>
+                <div class="booking-form-container glass-effect">
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name" data-i18n="form_name_label">الاسم / اسم الشركة</label>
+                            <input type="text" id="name" required placeholder="أدخل اسمك أو اسم شركتك" data-i18n-ph="form_name_ph">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="form_phone_label">رقم الهاتف</label>
+                            <input type="tel" id="phone" required placeholder="رقم الهاتف للتواصل" data-i18n-ph="form_phone_ph">
+                        </div>
+                        <div class="form-group">
+                            <label for="service" data-i18n="form_service_label">نوع الخدمة</label>
+                            <select id="service" required>
+                                <option value="" disabled selected data-i18n="form_srv_choose">اختر الخدمة المطلوبة</option>
+                                <option value="pcb" data-i18n="form_srv_pcb">صيانة لوحة PCB طبي</option>
+                                <option value="plc" data-i18n="form_srv_plc">برمجة وصيانة PLC</option>
+                                <option value="it" data-i18n="form_srv_it">صيانة كمبيوتر / شبكات مصانع</option>
+                                <option value="consulting" data-i18n="form_srv_consult">استشارة هندسية عن بعد</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date" data-i18n="form_date_label">تاريخ الزيارة المفضل</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="details" data-i18n="form_details_label">تفاصيل العطل أو الطلب</label>
+                            <textarea id="details" rows="4" placeholder="يرجى وصف المشكلة أو متطلباتك باختصار..." data-i18n-ph="form_details_ph" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary full-width" data-i18n="form_submit">تأكيد الحجز</button>
+                    </form>
+                    <div id="form-message" class="form-message hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio section-padding" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="port_heading">معرض <span>الأعمال</span></h2>
+                <p data-i18n="port_subheading">نظرة على بعض من مشاريعنا الناجحة في مجالات الصيانة الطبية والصناعية.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item reveal">
+                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="port_1_title">إصلاح لوحة أم لجهاز أشعة</h3>
+                        <p data-i18n="port_1_desc">مستشفى الحياة - PCB صيانة</p>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal delay-1">
+                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="port_2_title">برمجة PLC لخط إنتاج</h3>
+                        <p data-i18n="port_2_desc">مصنع الأمل - أتمتة صناعية</p>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal delay-2">
+                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="port_3_title">تجديد شبكة IT كاملة</h3>
+                        <p data-i18n="port_3_desc">مصنع للصناعات الدوائية - IT دعم</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog section-padding bg-light" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="blog_heading">أحدث <span>المقالات التقنية</span></h2>
+                <p data-i18n="blog_subheading">اقرأ أحدث النصائح حول صيانة الأجهزة المعقدة والحفاظ على كفاءة مصنعك.</p>
+            </div>
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card reveal">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">10 أكتوبر 2026</span>
+                        <h3 data-i18n="blog_1_title">أهمية الصيانة الوقائية للوحات الـ PLC</h3>
+                        <p data-i18n="blog_1_desc">تعرف على كيف يمكن للصيانة الوقائية أن تنقذ خطوط الإنتاج من التوقف المفاجئ وتوفر آلاف الدولارات...</p>
+                        <a href="#" class="blog-readmore" data-i18n="blog_readmore">اقرأ المزيد <i class="fa-solid fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <!-- Blog 2 -->
+                <div class="blog-card reveal delay-1">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">02 سبتمبر 2026</span>
+                        <h3 data-i18n="blog_2_title">كيفية تحديد أعطال لوحات الـ PCB الطبية</h3>
+                        <p data-i18n="blog_2_desc">خطوات أساسية للفحص الظاهري والمبدئي للوحات الأجهزة الطبية قبل طلب تدخل الصيانة المختص...</p>
+                        <a href="#" class="blog-readmore" data-i18n="blog_readmore">اقرأ المزيد <i class="fa-solid fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <!-- Blog 3 -->
+                <div class="blog-card reveal delay-2">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">15 أغسطس 2026</span>
+                        <h3 data-i18n="blog_3_title">تأمين شبكات المصانع ضد الهجمات السيبرانية</h3>
+                        <p data-i18n="blog_3_desc">دليلك لحماية بيانات خطوط الإنتاج الصناعية وأنظمة سكادا (SCADA) من الاختراق والتعطيل المتعمد...</p>
+                        <a href="#" class="blog-readmore" data-i18n="blog_readmore">اقرأ المزيد <i class="fa-solid fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding bg-dark" id="testimonials">
+        <div class="container">
+            <div class="section-title light-text">
+                <h2 data-i18n="test_heading">آراء <span>العملاء</span></h2>
+                <p data-i18n="test_subheading">نفخر بثقة عملائنا في خدماتنا الهندسية المتخصصة.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <p class="feedback" data-i18n="test_1_feedback">"فريق عمل احترافي جداً، قاموا بإصلاح لوحة التحكم الخاصة بجهاز الأشعة في وقت قياسي وبكفاءة عالية."</p>
+                    <div class="client-info">
+                        <div class="client-avatar"><i class="fa-solid fa-user-md"></i></div>
+                        <div>
+                            <h4 data-i18n="test_1_name">د. أحمد محمود</h4>
+                            <span data-i18n="test_1_title">مدير مستشفى السلام</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal delay-1">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <p class="feedback" data-i18n="test_2_feedback">"عقد الصيانة معهم لأجهزة الكمبيوتر كان من أفضل القرارات. استجابة سريعة ولا توجد أي فترات توقف للإنتاج."</p>
+                    <div class="client-info">
+                        <div class="client-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                        <div>
+                            <h4 data-i18n="test_2_name">م. طارق كمال</h4>
+                            <span data-i18n="test_2_title">مدير الإنتاج بمصنع للصناعات الغذائية</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal delay-2">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <p class="feedback" data-i18n="test_3_feedback">"خبرة ممتازة في برمجة أجهزة الـ PLC، قاموا بحل مشكلة معقدة كانت تعطل خط التعبئة بكل سهولة."</p>
+                    <div class="client-info">
+                        <div class="client-avatar"><i class="fa-solid fa-user-gear"></i></div>
+                        <div>
+                            <h4 data-i18n="test_3_name">ياسر إبراهيم</h4>
+                            <span data-i18n="test_3_title">مالك مصنع النسيج</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo footer-logo">
+                        <i class="fa-solid fa-microchip"></i> <span data-i18n="logo_techno">تكنو</span><span class="highlight" data-i18n="logo_med">ميد</span>
+                    </a>
+                    <p data-i18n="footer_about">شركتك الموثوقة للاستشارات الهندسية وصيانة المعدات الطبية والصناعية. خبرة واسعة وجودة لا تضاهى.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 data-i18n="footer_links_title">روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="#services" data-i18n="nav_services">الخدمات</a></li>
+                        <li><a href="#blog" data-i18n="nav_blog">المقالات</a></li>
+                        <li><a href="#booking" data-i18n="nav_book">احجز موعد</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 data-i18n="footer_contact_title">تواصل معنا</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_address">6 أكتوبر، مصر</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span dir="ltr">+20 101 117 3080</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> info@technomed-eng.com</li>
+                        <li><i class="fa-brands fa-whatsapp"></i> <span dir="ltr">+20 101 117 3080</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_copyright">&copy; 2026 تكنوميد للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201011173080" class="float-wa" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
