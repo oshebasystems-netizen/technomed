@@ -909,9 +909,23 @@ html[dir="ltr"] .float-wa {
 }
 
 @media screen and (max-width: 768px) {
-    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content h1 { font-size: 2rem; line-height: 1.4; padding: 0 10px; }
+    .hero-content p { font-size: 1rem; padding: 0 15px; margin-bottom: 30px; }
+    
+    .hero-btns { flex-direction: column; width: 100%; align-items: center; gap: 15px; }
+    .hero-btns a { width: 90%; max-width: 320px; }
+    
     .nav-links, .nav-btn { display: none; }
-    .mobile-menu-icon { display: block; }
+    .mobile-menu-icon { display: block; margin-right: 15px; }
+    html[dir="ltr"] .mobile-menu-icon { margin-left: 15px; margin-right: 0; }
+    
+    .logo { font-size: 1.4rem; gap: 5px; }
+    .nav-actions { gap: 10px; margin-right: auto; margin-left: 10px; }
+    html[dir="ltr"] .nav-actions { margin-left: auto; margin-right: 10px; }
+    
+    .theme-toggle-btn { font-size: 1.1rem; }
+    .lang-btn { font-size: 0.85rem; padding: 5px 12px; }
+
     .float-wa { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 30px; }
     html[dir="ltr"] .float-wa { right: auto; left: 20px; }
     
