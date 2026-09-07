@@ -90,6 +90,8 @@ html[lang="en"] {
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -942,6 +944,10 @@ html[dir="ltr"] .float-wa {
         padding: 20px 0;
         text-align: center;
         border-top: 1px solid var(--glass-border);
+    }
+    
+    .services-grid, .portfolio-grid, .blog-grid, .testimonials-grid, .stats-cards {
+        grid-template-columns: 1fr;
     }
     
     .footer-grid { grid-template-columns: 1fr; }
