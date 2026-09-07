@@ -123,6 +123,18 @@ app.put('/api/bookings/:id/status', verifyToken, (req, res) => {
     });
 });
 
+// Track booking status by phone (Public Endpoint)
+app.get('/api/track/:phone', (req, res) => {
+    const phone = req.params.phone;
+    db.all('SELECT id, name, service, date, details, status, created_at FROM bookings WHERE phone = ? ORDER BY created_at DESC', [phone], (err, rows) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Database error' });
+        }
+        res.json(rows);
+    });
+});
+
 // Export app for Vercel Serverless Functions
 module.exports = app;
 
