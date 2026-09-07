@@ -249,3 +249,65 @@ body {
     font-family: inherit;
     font-weight: 600;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 15px 0;
+    }
+    
+    .sidebar .logo {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .sidebar-menu li {
+        margin: 5px;
+    }
+    
+    .sidebar-menu li a {
+        padding: 10px 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none !important;
+        text-align: center;
+    }
+    
+    .topbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .content-wrapper {
+        padding: 15px;
+    }
+    
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-container {
+        padding: 10px;
+    }
+    
+    .bookings-table th, .bookings-table td {
+        padding: 10px 5px;
+        font-size: 0.9rem;
+    }
+}
