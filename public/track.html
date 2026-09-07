@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تتبع الصيانة | تكنوميد</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: var(--clr-gray-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .track-header {
+            background-color: var(--clr-navy);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .track-header .logo {
+            color: var(--clr-white-bright);
+            font-size: 2rem;
+            text-decoration: none;
+        }
+        
+        .track-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: var(--clr-white-bright);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 90%;
+        }
+        
+        .track-title {
+            text-align: center;
+            color: var(--clr-navy);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .track-title i {
+            color: var(--clr-cyan-dark);
+            margin-left: 10px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+        
+        .search-box input:focus {
+            border-color: var(--clr-cyan-dark);
+            outline: none;
+        }
+        
+        .search-box button {
+            padding: 15px 30px;
+            background: var(--clr-cyan-dark);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .search-box button:hover {
+            background: var(--clr-navy);
+        }
+        
+        /* Timeline Styles */
+        .result-container {
+            display: none;
+        }
+        
+        .booking-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+        
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .booking-header h3 {
+            color: var(--clr-navy);
+            font-size: 1.2rem;
+        }
+        
+        .booking-header span {
+            color: var(--clr-gray);
+            font-size: 0.9rem;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            right: 40px;
+            height: 4px;
+            background: #eee;
+            z-index: 1;
+        }
+        
+        .timeline-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 25%;
+        }
+        
+        .timeline-icon {
+            width: 45px;
+            height: 45px;
+            background: #eee;
+            color: #aaa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 1.2rem;
+            border: 4px solid #fff;
+            transition: 0.3s;
+        }
+        
+        .timeline-step p {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Active States */
+        .timeline-step.active .timeline-icon {
+            background: var(--clr-cyan-dark);
+            color: #fff;
+            box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.2);
+        }
+        
+        .timeline-step.active p {
+            color: var(--clr-cyan-dark);
+        }
+        
+        .timeline-step.completed .timeline-icon {
+            background: #28a745;
+            color: #fff;
+        }
+        
+        .timeline-step.completed p {
+            color: #28a745;
+        }
+        
+        .timeline-step.cancelled .timeline-icon {
+            background: #dc3545;
+            color: #fff;
+        }
+        
+        .timeline-step.cancelled p {
+            color: #dc3545;
+        }
+        
+        .error-msg {
+            color: #dc3545;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .loading {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--clr-cyan-dark);
+            display: none;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .search-box {
+                flex-direction: column;
+            }
+            .timeline {
+                flex-direction: column;
+                gap: 30px;
+                padding: 0;
+            }
+            .timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                right: auto;
+                width: 4px;
+                height: 100%;
+                transform: translateX(-50%);
+            }
+            .timeline-step {
+                width: 100%;
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+            .timeline-icon {
+                margin: 0;
+            }
+            .timeline-step p {
+                width: 100px;
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="track-header">
+        <a href="/" class="logo">
+            <i class="fa-solid fa-microchip"></i> تكنو<span style="color: var(--clr-cyan);">ميد</span>
+        </a>
+    </header>
+
+    <div class="track-container">
+        <h2 class="track-title"><i class="fa-solid fa-magnifying-glass"></i> تتبع حالة طلبك</h2>
+        <p style="text-align: center; margin-bottom: 25px; color: var(--clr-gray);">أدخل رقم الهاتف الذي قمت بالتسجيل به لمعرفة حالة الصيانة أو الاستشارة الخاصة بك.</p>
+        
+        <form id="track-form" class="search-box">
+            <input type="tel" id="phone-input" placeholder="رقم الهاتف..." required dir="rtl">
+            <button type="submit" id="track-btn">بحث</button>
+        </form>
+        
+        <div id="loading" class="loading">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+        </div>
+        
+        <div id="error-msg" class="error-msg"></div>
+        
+        <div id="result-container" class="result-container">
+            <!-- Bookings will be injected here via JS -->
+        </div>
+    </div>
+
+    <script src="js/track.js"></script>
+</body>
+</html>
