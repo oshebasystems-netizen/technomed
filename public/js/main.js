@@ -322,3 +322,31 @@ if (bookingForm) {
         }
     });
 }
+
+// =========================================
+// THEME TOGGLE LOGIC
+// =========================================
+const themeToggleBtn = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'dark' && themeToggleBtn) {
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun" style="color:#FFD700"></i>';
+    }
+}
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        let currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun" style="color:#FFD700"></i>';
+        }
+    });
+}

@@ -123,7 +123,12 @@ app.put('/api/bookings/:id/status', verifyToken, (req, res) => {
     });
 });
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Export app for Vercel Serverless Functions
+module.exports = app;
+
+// Start Server locally if not in production
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+}

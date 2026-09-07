@@ -35,6 +35,52 @@ html[lang="en"] {
     --font-main: var(--font-english);
 }
 
+/* =========================================
+   DARK THEME
+========================================= */
+[data-theme="dark"] body {
+    background-color: var(--clr-navy);
+    color: var(--clr-white);
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: var(--clr-navy-light);
+}
+
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .blog-card {
+    background-color: var(--clr-navy-light);
+    color: var(--clr-white);
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+    color: var(--clr-white-bright);
+}
+
+[data-theme="dark"] .section-title p,
+[data-theme="dark"] .service-card p,
+[data-theme="dark"] .blog-content p {
+    color: var(--clr-gray);
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--clr-white-bright);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+    color: var(--clr-cyan);
+}
+
 * {
     margin: 0;
     padding: 0;
